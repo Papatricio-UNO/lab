@@ -12,7 +12,7 @@ class Television:
         """""
         Constructor to create intial state of a TV object.
         :param Television.MIN_CHANNEL: Television's starting channel.
-        :param Television.MIN_VOLUME: Television's starting volume.        
+        :param Television.MIN_VOLUME: Television's starting volume.      
         """""
         self.__channel = Television.MIN_CHANNEL
         self.__volume = Television.MIN_VOLUME
