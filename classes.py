@@ -8,30 +8,26 @@ class Television:
     MIN_VOLUME: int = 0      # Minimum TV volume
     MAX_VOLUME: int = 2      # Maximum TV volume
 
-    def __init__(self):
+    def __init__(self) -> None:
         """""
-        Constructor to create intial state of a TV object.
-        :param Television.MIN_CHANNEL: Television's starting channel.
-        :param Television.MIN_VOLUME: Television's starting volume.      
+        Constructor to create initial state of a TV object.  
         """""
-        self.__channel = Television.MIN_CHANNEL
-        self.__volume = Television.MIN_VOLUME
-        self.__status = False
+        self.__channel: int = Television.MIN_CHANNEL
+        self.__volume: int = Television.MIN_VOLUME
+        self.__status: bool = False
 
-    def power(self):
+    def power(self) -> None:
         """
         Method to turn the television on or off
-        :return: Television's power status
         """
         if not self.__status:
-            self.__status = True
+            self.__status: bool = True
         else:
-            self.__status = False
+            self.__status: bool = False
 
-    def channel_up(self):
+    def channel_up(self) -> None:
         """""
         Method to go up a television channel 
-        :return: Television's channel
         """""
         if self.__status:
             if self.__channel < Television.MAX_CHANNEL:
@@ -39,10 +35,9 @@ class Television:
             else:
                 self.__channel = Television.MIN_CHANNEL
 
-    def channel_down(self):
+    def channel_down(self) -> None:
         """
         Method to go down a television channel
-        :return: Television's channel
         """
         if self.__status:
             if self.__channel > Television.MIN_CHANNEL:
@@ -50,26 +45,23 @@ class Television:
             else:
                 self.__channel = Television.MAX_CHANNEL
 
-    def volume_up(self):
+    def volume_up(self) -> None:
         """
         Method to increase a television's volume
-        :return: Television's volume
         """
         if self.__status and self.__volume != Television.MAX_VOLUME:
             self.__volume += 1
 
-    def volume_down(self):
+    def volume_down(self) -> None:
         """
         Method to decrease a television's volume
-        :return: Television's volume
         """
         if self.__status and self.__volume != Television.MIN_VOLUME:
             self.__volume -= 1
 
-    def __str__(self):
+    def __str__(self) -> str:
         """
         Method to print the power status, channel, and volume
-        :return: Television's volume
         """
         return f'TV status: Is on = {self.__status}, ' \
                f'Channel = {self.__channel}, Volume = {self.__volume}'
